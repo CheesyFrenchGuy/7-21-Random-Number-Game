@@ -8,7 +8,7 @@ play = True
 
 while play == True:
   if won == True:
-    print("Congrats, you won!")
+    print("Congrats, you won! You had " + str(tries) + " tries left!")
     break
   while tries > 0:
     player_num = input("Enter a number between 1 and 10: ")
@@ -29,7 +29,14 @@ while play == True:
         print("Correct")
         won = True
         break
-        if tries == 0:
-          break
-
-
+  if tries == 0:
+    print("No more tries.")
+    print("The number was: " + str(comp_num))
+  answer = input("Do you want to play again?: Y or N ")
+  if answer.upper() == "N":
+    print("Okay bye!")
+    play = False
+  else:
+    won = False
+    tries = 3
+    comp_num = random.randint(0,10)
